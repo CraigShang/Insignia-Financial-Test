@@ -18,6 +18,8 @@ public class CommandInterpreter {
                     int y = Integer.parseInt(tokens[2]);
                     Direction direction = Direction.valueOf(tokens[3].toUpperCase());
                     robot.place(x, y, direction);
+                }else{
+                    showUnknownCommandErrorMessage(commandString);;
                 }
                 break;
             case MOVE:
@@ -33,8 +35,12 @@ public class CommandInterpreter {
                 robot.report();
                 break;
             default:
-                System.err.println("Unknown command: " + commandString);
+                showUnknownCommandErrorMessage(commandString);
                 break;
         }
+    }
+    
+    private void showUnknownCommandErrorMessage(String command){
+        System.err.println("Unknown command: " + command);
     }
 }
