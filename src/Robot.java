@@ -35,7 +35,7 @@ public class Robot {
                 break;
         }
 
-        if (table.isValidPosition(nextX, nextY) && !table.willFall(x, y, direction)) {
+        if (table.isValidPosition(nextX, nextY)) {
             x = nextX;
             y = nextY;
         }
